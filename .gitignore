@@ -1,0 +1,12 @@
+/vendor/
+/build/
+/coverage/
+/.phpunit.result.cache
+/.php-cs-fixer.cache
+/phpstan.neon
+/phpstan.neon.local
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db
+

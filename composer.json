@@ -1,0 +1,66 @@
+{
+    "name": "openfinancy/p2p-client-component",
+    "description": "Shared P2P client abstractions for OpenFinancy services.",
+    "homepage": "https://github.com/openfinancy/p2p-client-component",
+    "keywords": [
+        "openfinancy",
+        "p2p",
+        "finance",
+        "symfony",
+        "client"
+    ],
+    "authors": [
+        {
+            "name": "OpenFinancy",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Nicolas Méloni",
+            "homepage": "https://github.com/TheGrimmChester",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/openfinancy/p2p-client-component/issues",
+        "source": "https://github.com/openfinancy/p2p-client-component"
+    },
+    "type": "library",
+    "license": "EUPL-1.2",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.4",
+        "psr/log": "^3.0",
+        "symfony/http-client-contracts": "^3.5"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.59",
+        "phpstan/phpstan": "^1.11",
+        "phpunit/phpunit": "^12.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenFinancy\\Component\\P2PClient\\": "src/P2PClient/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenFinancy\\Component\\P2PClient\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "analyse": "vendor/bin/phpstan analyse",
+        "lint": "vendor/bin/php-cs-fixer fix --dry-run --diff",
+        "format": "vendor/bin/php-cs-fixer fix"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    }
+}
+
