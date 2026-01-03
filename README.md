@@ -36,7 +36,7 @@ $configurationProvider = new class implements P2PClientConfigurationProviderInte
     public function getConfiguration(bool $refresh = false): P2PClientConfiguration
     {
         return new P2PClientConfiguration(
-            projectName: 'MarketRates',
+            projectType: 'MarketRates',
             providerLabel: 'MarketRates Node',
             hubEndpoint: 'https://hub.openfinancy.io',
             publicEndpoint: 'https://market-rates.example.com',

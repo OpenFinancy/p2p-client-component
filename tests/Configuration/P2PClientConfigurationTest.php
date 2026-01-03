@@ -12,7 +12,7 @@ final class P2PClientConfigurationTest extends TestCase
     public function testConfigurationExposesImmutableData(): void
     {
         $configuration = new P2PClientConfiguration(
-            projectName: 'MarketRates',
+            projectType: 'MarketRates',
             providerLabel: 'MarketRates Node',
             hubEndpoint: 'https://hub.test',
             publicEndpoint: 'https://peer.test',
@@ -23,7 +23,7 @@ final class P2PClientConfigurationTest extends TestCase
             metadata: ['environment' => 'qa']
         );
 
-        self::assertSame('MarketRates', $configuration->getProjectName());
+        self::assertSame('MarketRates', $configuration->getProjectType());
         self::assertSame('MarketRates Node', $configuration->getProviderLabel());
         self::assertSame('https://hub.test', $configuration->getHubEndpoint());
         self::assertSame('https://peer.test', $configuration->getPublicEndpoint());
@@ -37,20 +37,20 @@ final class P2PClientConfigurationTest extends TestCase
     public function testWithOverridesReturnsNewInstance(): void
     {
         $configuration = new P2PClientConfiguration(
-            projectName: 'MarketRates',
+            projectType: 'MarketRates',
             providerLabel: 'MarketRates Node',
             hubEndpoint: 'https://hub.test'
         );
 
         $overridden = $configuration->withOverrides(
-            projectName: 'CollectibleRates',
+            projectType: 'CollectibleRates',
             maxPeerCalls: 1,
             peerEnabled: true
         );
 
         self::assertNotSame($configuration, $overridden);
-        self::assertSame('MarketRates', $configuration->getProjectName());
-        self::assertSame('CollectibleRates', $overridden->getProjectName());
+        self::assertSame('MarketRates', $configuration->getProjectType());
+        self::assertSame('CollectibleRates', $overridden->getProjectType());
         self::assertSame(1, $overridden->getMaxPeerCalls());
         self::assertTrue($overridden->isPeerEnabled());
     }

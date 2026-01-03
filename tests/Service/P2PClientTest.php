@@ -37,7 +37,7 @@ final class P2PClientTest extends TestCase
     protected function setUp(): void
     {
         $this->configuration = new P2PClientConfiguration(
-            projectName: 'MarketRates',
+            projectType: 'MarketRates',
             providerLabel: 'MarketRates Node',
             hubEndpoint: 'https://hub.test',
             publicEndpoint: 'https://peer.test',
@@ -81,7 +81,7 @@ final class P2PClientTest extends TestCase
             ->willReturnCallback(function (string $method, string $url, array $options) use ($response): ResponseInterface {
                 self::assertSame('POST', $method);
                 self::assertSame('https://hub.test/api/peers/register', $url);
-                self::assertSame('MarketRates', $options['json']['project_name']);
+                self::assertSame('MarketRates', $options['json']['project_type']);
                 self::assertSame('https://peer-endpoint.test', $options['json']['endpoint']);
                 self::assertSame(['EUR/USD'], $options['json']['metadata']['managed_pairs']);
                 self::assertSame('Custom Peer', $options['json']['metadata']['provider']);
@@ -210,7 +210,7 @@ final class P2PClientTest extends TestCase
     public function testProviderModeEnabledEvenWhenPeerValidationFails(): void
     {
         $configuration = new P2PClientConfiguration(
-            projectName: 'MarketRates',
+            projectType: 'MarketRates',
             providerLabel: 'MarketRates Node',
             hubEndpoint: 'https://hub.test',
             publicEndpoint: 'https://peer.test',

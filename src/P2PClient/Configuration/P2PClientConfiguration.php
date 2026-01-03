@@ -13,7 +13,7 @@ final class P2PClientConfiguration implements P2PClientConfigurationInterface
      * @param array<string, mixed> $metadata
      */
     public function __construct(
-        private readonly string $projectName,
+        private readonly string $projectType,
         private readonly string $providerLabel,
         private readonly string $hubEndpoint,
         private readonly ?string $publicEndpoint = null,
@@ -25,9 +25,9 @@ final class P2PClientConfiguration implements P2PClientConfigurationInterface
     ) {
     }
 
-    public function getProjectName(): string
+    public function getProjectType(): string
     {
-        return $this->projectName;
+        return $this->projectType;
     }
 
     public function getProviderLabel(): string
@@ -77,7 +77,7 @@ final class P2PClientConfiguration implements P2PClientConfigurationInterface
      * @param array<string, mixed>|null $metadata
      */
     public function withOverrides(
-        ?string $projectName = null,
+        ?string $projectType = null,
         ?string $providerLabel = null,
         ?string $hubEndpoint = null,
         ?string $publicEndpoint = null,
@@ -88,7 +88,7 @@ final class P2PClientConfiguration implements P2PClientConfigurationInterface
         ?array $metadata = null,
     ): self {
         return new self(
-            projectName: $projectName ?? $this->projectName,
+            projectType: $projectType ?? $this->projectType,
             providerLabel: $providerLabel ?? $this->providerLabel,
             hubEndpoint: $hubEndpoint ?? $this->hubEndpoint,
             publicEndpoint: $publicEndpoint ?? $this->publicEndpoint,

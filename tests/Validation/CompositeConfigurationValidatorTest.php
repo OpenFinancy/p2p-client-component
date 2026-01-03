@@ -18,7 +18,7 @@ final class CompositeConfigurationValidatorTest extends TestCase
     public function testValidatorReportsErrorsForMissingFields(): void
     {
         $configuration = new P2PClientConfiguration(
-            projectName: '',
+            projectType: '',
             providerLabel: '',
             hubEndpoint: '',
             publicEndpoint: null,
@@ -47,7 +47,7 @@ final class CompositeConfigurationValidatorTest extends TestCase
     public function testValidatorPassesForValidConfiguration(): void
     {
         $configuration = new P2PClientConfiguration(
-            projectName: 'MarketRates',
+            projectType: 'MarketRates',
             providerLabel: 'MarketRates Node',
             hubEndpoint: 'https://hub.test',
             publicEndpoint: 'https://peer.test'

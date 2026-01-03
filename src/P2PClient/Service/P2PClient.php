@@ -64,9 +64,9 @@ final class P2PClient implements PeerProviderInterface
         return $endpoint !== '' ? $endpoint : null;
     }
 
-    public function getProjectName(): string
+    public function getProjectType(): string
     {
-        return $this->getConfiguration()->getProjectName();
+        return $this->getConfiguration()->getProjectType();
     }
 
     public function getMaxPeerCalls(): int
@@ -90,7 +90,7 @@ final class P2PClient implements PeerProviderInterface
 
             $response = $this->httpClient->request('POST', $this->buildUrl($configuration->getHubEndpoint(), '/api/peers/register'), [
                 'json' => [
-                    'project_name' => $configuration->getProjectName(),
+                    'project_type' => $configuration->getProjectType(),
                     'endpoint' => $endpoint,
                     'metadata' => $payloadMetadata,
                 ],
@@ -244,7 +244,7 @@ final class P2PClient implements PeerProviderInterface
             $configuration = $this->getConfiguration();
             $response = $this->httpClient->request(
                 'GET',
-                $this->buildUrl($configuration->getHubEndpoint(), '/api/peers/discover/' . $configuration->getProjectName()),
+                $this->buildUrl($configuration->getHubEndpoint(), '/api/peers/discover/' . $configuration->getProjectType()),
                 ['timeout' => 30]
             );
 
@@ -303,7 +303,7 @@ final class P2PClient implements PeerProviderInterface
 
             $response = $this->httpClient->request(
                 'GET',
-                $this->buildUrl($configuration->getHubEndpoint(), '/api/peers/search/' . $configuration->getProjectName()),
+                $this->buildUrl($configuration->getHubEndpoint(), '/api/peers/search/' . $configuration->getProjectType()),
                 [
                     'query' => [
                         'metadata_key' => $metadataKey,

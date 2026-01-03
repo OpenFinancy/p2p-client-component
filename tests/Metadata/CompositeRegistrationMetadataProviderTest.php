@@ -17,7 +17,7 @@ final class CompositeRegistrationMetadataProviderTest extends TestCase
     public function testCompositeMergesProvidersAndNormalizes(): void
     {
         $configuration = new P2PClientConfiguration(
-            projectName: 'MarketRates',
+            projectType: 'MarketRates',
             providerLabel: 'MarketRates Node',
             hubEndpoint: 'https://hub.test',
             publicEndpoint: 'https://peer.test',

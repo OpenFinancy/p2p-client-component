@@ -20,7 +20,7 @@ final class ProjectNameRule implements ConfigurationValidationRuleInterface
         P2PMode $mode,
         ConfigurationValidationResult $result
     ): void {
-        if (trim($configuration->getProjectName()) === '') {
+        if (trim($configuration->getProjectType()) === '') {
             $result->addError(sprintf('Project name must be configured to run %s operations.', $mode->value));
         }
     }

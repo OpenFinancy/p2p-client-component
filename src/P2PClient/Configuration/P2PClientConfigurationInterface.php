@@ -9,7 +9,7 @@ namespace OpenFinancy\Component\P2PClient\Configuration;
  */
 interface P2PClientConfigurationInterface
 {
-    public function getProjectName(): string;
+    public function getProjectType(): string;
 
     public function getProviderLabel(): string;
 

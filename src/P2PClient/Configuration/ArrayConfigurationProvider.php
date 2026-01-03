@@ -25,7 +25,7 @@ final class ArrayConfigurationProvider implements P2PClientConfigurationProvider
         }
 
         return new P2PClientConfiguration(
-            projectName: (string) ($this->options['project_name'] ?? $this->options['projectName'] ?? ''),
+            projectType: (string) ($this->options['project_type'] ?? $this->options['projectType'] ?? ''),
             providerLabel: (string) ($this->options['provider_label'] ?? $this->options['providerLabel'] ?? ''),
             hubEndpoint: (string) ($this->options['hub_endpoint'] ?? $this->options['hubEndpoint'] ?? ''),
             publicEndpoint: isset($this->options['public_endpoint']) ? (string) $this->options['public_endpoint'] : ($this->options['publicEndpoint'] ?? null),
